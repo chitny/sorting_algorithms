@@ -33,7 +33,7 @@ void quick_recursion(int *array, int izq, int der, size_t size)
 }
 
 /**
- * partition - gives a piv index for Quicksort
+ * part - gives a piv index for Quicksort
  * @array: array to find the piv in
  * @izq: index of the left element
  * @der: index of the right element
