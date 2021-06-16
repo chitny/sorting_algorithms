@@ -7,10 +7,7 @@
  */
 void quick_sort(int *array, size_t size)
 {
-	if (size < 2)
-		return;
-
-	quick_recursion(array, 0, (int)size - 1, size);
+	quick_recursion(array, 0, size - 1, size);
 }
 
 /**
@@ -26,7 +23,7 @@ void quick_recursion(int *array, int izq, int der, size_t size)
 
 	if (izq < der)
 	{
-		piv = part(array, izq, der, izq);
+		piv = part(array, izq, der, size);
 		quick_recursion(array, izq, piv - 1, size);
 		quick_recursion(array, piv + 1, der, size);
 	}
