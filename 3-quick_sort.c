@@ -14,43 +14,43 @@ void quick_sort(int *array, size_t size)
 }
 
 /**
- * quick_recursion - helper function for Quicksort
- * @array: array to sort
- * @left: index of the left element
- * @right: index of the right element
+ * quick_recursion - function for Quicksort
+ * @array: array i need to sort
+ * @izq: index of the left element
+ * @der: index of the right element
  * @size: size of the array
  */
-void quick_recursion(int *array, int left, int right, size_t size)
+void quick_recursion(int *array, int izq, int der, size_t size)
 {
 	int piv;
 
-	if (left < right)
+	if (izq < der)
 	{
-		piv = partition(array, left, right, size);
-		quick_recursion(array, left, piv - 1, size);
-		quick_recursion(array, piv + 1, right, size);
+		piv = part(array, izq, der, izq);
+		quick_recursion(array, izq, piv - 1, size);
+		quick_recursion(array, piv + 1, der, size);
 	}
 }
 
 /**
  * partition - gives a piv index for Quicksort
  * @array: array to find the piv in
- * @left: index of the left element
- * @right: index of the right element
+ * @izq: index of the left element
+ * @der: index of the right element
  * @size: size of the array
  *
  * Return: the index of the piv element
  */
-int partition(int *array, int left, int right, size_t size)
+int part(int *array, int izq, int der, size_t size)
 {
 	int tmp, i;
 	int j;
 
-	i = left - 1;
+	i = izq - 1;
 
-	for (j = left; j < right; j++)
+	for (j = izq; j < der; j++)
 	{
-		if (array[j] < array[right])
+		if (array[j] < array[der])
 		{
 			i++;
 			if (i != j)
@@ -63,11 +63,11 @@ int partition(int *array, int left, int right, size_t size)
 		}
 	}
 
-	if (array[right] < array[i + 1])
+	if (array[der] < array[i + 1])
 	{
 		tmp = array[i + 1];
-		array[i + 1] = array[right];
-		array[right] = tmp;
+		array[i + 1] = array[der];
+		array[der] = tmp;
 		print_array(array, size);
 	}
 
